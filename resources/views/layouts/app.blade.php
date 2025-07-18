@@ -88,11 +88,17 @@
       <div class="p-4 border-t border-gray-200">
         <div class="flex items-center justify-between">
           <div class="flex items-center">
-            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3">
-              <span class="text-white text-sm font-medium">
-                {{ strtoupper(Str::substr(auth()->user()->name,0,1)) }}
-              </span>
-            </div>
+              @if(auth()->user()->foto && file_exists(public_path('storage/' . auth()->user()->foto)))
+                <img src="{{ asset('storage/' . auth()->user()->foto) }}"
+                    alt="Foto Profil"
+                    class="w-8 h-8 rounded-full object-cover mr-3 border border-gray-300">
+              @else
+                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3">
+                  <span class="text-white text-sm font-medium">
+                    {{ strtoupper(Str::substr(auth()->user()->name,0,1)) }}
+                  </span>
+                </div>
+              @endif
             <div>
               <p class="text-sm font-medium text-gray-800">{{ auth()->user()->name }}</p>
               <p class="text-xs text-gray-500">{{ auth()->user()->email }}</p>
@@ -115,7 +121,7 @@
     {{-- ========== /SIDEBAR ========== --}}
 
     {{-- ========== MAIN CONTENT ========== --}}
-    <main class="flex-1 p-4 sm:p-6 lg:p-8">
+    <main class="flex-1 h-screen overflow-y-auto p-4 sm:p-6 lg:p-8">
       {{-- Judul di mobile (supaya tetap terlihat) --}}
       <header class="lg:hidden mb-4">
         <h1 class="text-lg font-semibold text-gray-800">Dashboard</h1>

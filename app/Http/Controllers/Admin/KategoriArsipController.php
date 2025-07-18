@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\KategoriArsip;
 
 class KategoriArsipController extends Controller
 {
@@ -12,7 +13,8 @@ class KategoriArsipController extends Controller
      */
     public function index()
     {
-        //
+        $kategoris = KategoriArsip::latest()->get();
+        return view('admin.kategori_arsip.index', compact('kategoris'));
     }
 
     /**
@@ -20,7 +22,7 @@ class KategoriArsipController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kategori_arsip.create');
     }
 
     /**
@@ -28,7 +30,15 @@ class KategoriArsipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_kategori' => 'required|string|max:255|unique:kategori_arsips,nama_kategori',
+        ]);
+
+        KategoriArsip::create([
+            'nama_kategori' => $request->nama_kategori,
+        ]);
+
+        return redirect()->route('admin.kategori-arsip.index')->with('success', 'Kategori berhasil ditambahkan.');
     }
 
     /**
@@ -42,24 +52,33 @@ class KategoriArsipController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(KategoriArsip $kategori_arsip)
     {
-        //
+        return view('admin.kategori_arsip.edit', compact('kategori_arsip'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, KategoriArsip $kategori_arsip)
     {
-        //
+        $request->validate([
+            'nama_kategori' => 'required|string|max:255|unique:kategori_arsips,nama_kategori,' . $kategori_arsip->id,
+        ]);
+
+        $kategori_arsip->update([
+            'nama_kategori' => $request->nama_kategori,
+        ]);
+
+        return redirect()->route('admin.kategori-arsip.index')->with('success', 'Kategori berhasil diperbarui.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(KategoriArsip $kategori_arsip)
     {
-        //
+        $kategori_arsip->delete();
+        return redirect()->route('admin.kategori-arsip.index')->with('success', 'Kategori berhasil dihapus.');
     }
 }

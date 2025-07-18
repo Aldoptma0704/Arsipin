@@ -19,7 +19,7 @@
         <!-- Form Card -->
         <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
             <div class="p-6 sm:p-8">
-                <form action="{{ route('admin.arsip.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                <form action="{{ route('users.arsip.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                     @csrf
 
                     <!-- Judul Arsip -->
@@ -120,7 +120,7 @@
                             </span>
                         </button>
                         <a 
-                            href="{{ route('admin.arsip.index') }}" 
+                            href="{{ route('users.arsip.index') }}" 
                             class="w-full sm:w-auto bg-gray-100 text-gray-700 px-8 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-200 text-center"
                         >
                             <span class="flex items-center justify-center">
