@@ -36,6 +36,22 @@
     </svg>
     <span class="font-medium">Kelola Pengguna</span>
   </a>
+  <!-- ===== KELOLA KATEGORI ARSIP ===== -->
+<a href="{{ route('admin.kategori-arsip.index') }}"
+   class="group flex items-center gap-3 px-4 py-3 rounded-lg transition-colors
+          {{ request()->routeIs('admin.kategori-arsip.*')
+               ? 'bg-indigo-50 text-indigo-600'
+               : 'text-gray-700 hover:bg-indigo-50 hover:text-indigo-600' }}">
+  <svg class="w-5 h-5
+             {{ request()->routeIs('admin.kategori-arsip.*')
+                  ? 'text-indigo-600'
+                  : 'text-gray-400 group-hover:text-indigo-500' }}"
+       fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9 12h6m-6 4h6m2 4H7a2 2 0 01-2-2V6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v12a2 2 0 01-2 2z"/>
+  </svg>
+  <span class="font-medium">Kategori Arsip</span>
+</a>
 
   <!-- ===== KELOLA ARSIP ===== -->
 <a href="{{ route('admin.arsip.index') }}"
@@ -52,6 +68,23 @@
           d="M4 4h16v4H4V4zm0 6h16v10H4V10zm8 4h4m-4 4h4"/>
   </svg>
   <span class="font-medium">Kelola Arsip</span>
+</a>
+
+<!-- ===== EDIT PROFIL ===== -->
+<a href="{{ route('profile.edit') }}"
+   class="group flex items-center gap-3 px-4 py-3 rounded-lg transition-colors
+         {{ request()->routeIs('profile.edit') 
+              ? 'bg-indigo-50 text-indigo-600' 
+              : 'text-gray-700 hover:bg-indigo-50 hover:text-indigo-600' }}">
+    <svg class="w-5 h-5
+               {{ request()->routeIs('profile.edit') 
+                    ? 'text-indigo-600' 
+                    : 'text-gray-400 group-hover:text-indigo-500' }}"
+         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-4.586-9.414a2 2 0 112.828 2.828L11 14l-4 1 1-4 7.586-7.586z" />
+    </svg>
+    <span class="font-medium">Edit Profil</span>
 </a>
 
   <!-- ===== PEMBATAS ===== -->

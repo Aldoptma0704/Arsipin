@@ -10,7 +10,7 @@
             <ol class="flex items-center space-x-2 text-sm">
                 <li><a href="{{ route('dashboard') }}" class="text-gray-500 hover:text-blue-600 transition-colors">Dashboard</a></li>
                 <li class="text-gray-400">/</li>
-                <li><a href="{{ route('users.arsip.index') }}" class="text-gray-500 hover:text-blue-600 transition-colors">Arsip</a></li>
+                <li><a href="{{ route('admin.arsip.index') }}" class="text-gray-500 hover:text-blue-600 transition-colors">Arsip</a></li>
                 <li class="text-gray-400">/</li>
                 <li class="text-gray-900 font-medium">Detail</li>
             </ol>

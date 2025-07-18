@@ -45,7 +45,7 @@
         <!-- Form Card -->
         <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
             <div class="p-6 sm:p-8">
-                <form action="{{ route('admin.arsip.update', $arsip->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                <form action="{{ route('users.arsip.update', $arsip->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                     @csrf
                     @method('PUT')
 
@@ -112,9 +112,9 @@
                             required
                         >
                             <option value="">Pilih kategori arsip...</option>
-                            @foreach($kategori as $item)
-                                <option value="{{ $item->id }}" {{ $item->id == old('kategori_arsip_id', $arsip->kategori_arsip_id) ? 'selected' : '' }}>
-                                    {{ $item->nama_kategori }}
+                            @foreach($kategoris as $kategori)
+                                <option value="{{ $kategori->id }}" {{ $kategori->id == old('kategori_arsip_id', $arsip->kategori_arsip_id) ? 'selected' : '' }}>
+                                    {{ $kategori->nama_kategori }}
                                 </option>
                             @endforeach
                         </select>
@@ -171,7 +171,7 @@
                             </span>
                         </button>
                         <a 
-                            href="{{ route('admin.arsip.index') }}" 
+                            href="{{ route('users.arsip.index') }}" 
                             class="w-full sm:w-auto bg-gray-100 text-gray-700 px-8 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-200 text-center"
                         >
                             <span class="flex items-center justify-center">
@@ -182,7 +182,7 @@
                             </span>
                         </a>
                         <a 
-                            href="{{ route('admin.arsip.show', $arsip->id) }}" 
+                            href="{{ route('users.arsip.show', $arsip->id) }}" 
                             class="w-full sm:w-auto bg-blue-100 text-blue-700 px-8 py-3 rounded-xl font-semibold hover:bg-blue-200 transition-all duration-200 text-center"
                         >
                             <span class="flex items-center justify-center">

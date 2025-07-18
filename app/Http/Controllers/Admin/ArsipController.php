@@ -24,8 +24,8 @@ class ArsipController extends Controller
      */
     public function create()
     {
-        $kategori = KategoriArsip::all();
-        return view('admin.arsip.create', compact('kategori'));
+        $kategoris = KategoriArsip::all();
+        return view('admin.arsip.create', compact('kategoris'));
     }
 
     /**
