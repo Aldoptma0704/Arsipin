@@ -178,7 +178,7 @@
                                     <input type="checkbox" class="mr-2 rounded text-purple-600 focus:ring-purple-500">
                                     Ingat saya
                                 </label>
-                                <a href="#" class="text-purple-600 text-sm hover:text-purple-800 transition-all duration-300">
+                                <a href="{{ route('password.reset') }}" class="text-purple-600 text-sm hover:text-purple-800 transition-all duration-300">
                                     Lupa password?
                                 </a>
                             </div>

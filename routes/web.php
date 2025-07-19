@@ -40,6 +40,9 @@ Route::middleware('guestonly')->group(function () {
 // Logout (Hanya untuk yang sudah login)
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/reset-password', [AuthController::class, 'showResetForm'])->name('password.reset');
+Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('password.update');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profil/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profil/update', [ProfileController::class, 'update'])->name('profile.update');
